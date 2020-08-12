@@ -76,12 +76,12 @@ section{ padding:75px 0 0;}
 @import url('https://fonts.googleapis.com/css?family=Roboto:500');
 
 .btn-skin{
-	background-color:#42b1e7;
-	border-color:#42b1e7;
+	background-color:#f58946;
+	border-color:#f58946;
 }
 .btn-skin:hover{
-	background-color:#3ea4d6;
-	border-color:#3ea4d6;
+	background-color:#f58946;
+	border-color:#f58946;
 }
 .inner_page footer{
 	margin-top:75px;
