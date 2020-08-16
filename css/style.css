@@ -336,7 +336,7 @@ section{ padding:75px 0 0;}
    float:none;
 }
 section .panel-heading{
-	margin-bottom:50px;
+	margin-bottom:10px;
 	position:relative;
 	font-size: 26px;
 	font-weight:700;
@@ -767,27 +767,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#23e4eb', end
 
 /*========= Home Call TO Action  ==========*/
 #call-to-action {
-    background: url(../images/Consultation_banner.jpg) repeat scroll center 0 / cover ;
+    /* background: url(../images/Consultation_banner.jpg) repeat scroll center 0 / cover ; */
     position: relative;
 	padding:40px 0;
 }
 
 .free_consultation::before {
-background: rgba(69,174,231,0.08);
-background: -moz-linear-gradient(left, rgba(69,174,231,0.08) 0%, rgba(69,174,231,0.84) 0%, rgba(35,228,235,0.84) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(69,174,231,0.08)), color-stop(0%, rgba(69,174,231,0.84)), color-stop(100%, rgba(35,228,235,0.84)));
-background: -webkit-linear-gradient(left, rgba(69,174,231,0.08) 0%, rgba(69,174,231,0.84) 0%, rgba(35,228,235,0.84) 100%);
-background: -o-linear-gradient(left, rgba(69,174,231,0.08) 0%, rgba(69,174,231,0.84) 0%, rgba(35,228,235,0.84) 100%);
-background: -ms-linear-gradient(left, rgba(69,174,231,0.08) 0%, rgba(69,174,231,0.84) 0%, rgba(35,228,235,0.84) 100%);
-background: linear-gradient(to right, rgba(69,174,231,0.08) 0%, rgba(69,174,231,0.84) 0%, rgba(35,228,235,0.84) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45aee7', endColorstr='#23e4eb', GradientType=1 );
-    content: "";
-    display: block;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
+
 }
 
 #call-to-action h2{
