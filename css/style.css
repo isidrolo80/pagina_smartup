@@ -369,9 +369,7 @@ section .panel-heading:before {
     z-index: 100;
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-	background: #1de7eb;
-    background: -webkit-linear-gradient(to right, #40a8e7, #1de7eb);
-    background: linear-gradient(to right, #40a8e7, #1de7eb);
+	background: #f58a46;
 }
 .step-one{
 	position:relative;
@@ -424,11 +422,11 @@ section .panel-heading:before {
 	vertical-align: middle;    
 }
 .services-list li:hover{
-	border-bottom-color:#23e4ea;
+	border-bottom-color:#f58a46;
 	
 }
 .services-list li:hover a{
-	color:#23e4ea;
+	color:#f58a46;
 	text-decoration:none;
 	}
 .services-list li a{ 
@@ -918,7 +916,7 @@ footer .newsletter .input-group input {
 footer .newsletter .btn-default {
     background-color: inherit;
     border: medium none;
-    color: #23e5eb;
+    color: #f58a46;
 	padding: 0 0 5px;
 }
 .newsletter .btn:active, .newsletter .btn:hover {
