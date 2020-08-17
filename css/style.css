@@ -693,9 +693,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#23e4eb', end
 
 #downlod_app{
 	color:#FFF;
-	background: #45ade7;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #23e5eb, #45ade7);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #23e5eb, #45ade7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #141e46;  /* fallback for old browsers */
 	margin:170px 0 90px;
 	padding-bottom:115px;
 		
