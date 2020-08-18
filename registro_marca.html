@@ -22,25 +22,17 @@
 
 
 <!-- Link a Producción -->
-<script src="https://xchange.paybox.la/api/checkout.js"></script>
-<!-- Link a Sandbox -->
-<script src="https://xchange.paybox.la/api/sandbox.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://cdn.xchange.la/paybox/index.js"></script>
               
 
 </head>
 
-<style type="text/css">
-  
-  #scroll {
-    min-height:190px; 
-    overflow-y :auto; 
-    overflow-x:hidden; 
-    position:absolute;
-    width:300px;
-    display: contents;
- }
+ 
 
-</style>
+
+
+
 
 <body>
 <div id="wrapper" class="inner_page booking_page"><!--Wrapper Start--> 
@@ -141,14 +133,14 @@
             <div class="booking_form">
               <div class="container-fluid">
                 <div class="row">
-                  <form method="post">
+                  <form enctype="multipart/form-data" name="myForm" id="myForm" action="contacto.php" method="POST">
                     <h2>Información de Contacto</h2>
                     <p>Por hacer</p>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                      <input class="form-control" id="name" name="name" placeholder="Nombres" type="text"/>
+                      <input class="form-control" id="nombres" name="nombres" placeholder="Nombres" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12 padding-r">
-                      <input class="form-control" id="name1" name="name1" placeholder="Apellidos" type="text"/>
+                      <input class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                       <input class="form-control" id="email" name="email" placeholder="Email*" type="text"/>
@@ -159,73 +151,72 @@
                     <div class="form-group col-md-12 col-sm-12 col-xs-12 padding-r">
                       <input class="form-control" id="direccion" name="direccion" placeholder="Dirección Física*" type="text"/>
                     </div>
+                    <input type="hidden" id="monto" name="monto" value="433.99" />
                     <div class="clearfix"></div>
                     <hr />
                     <!--Service Address-->
                     <h2>Clasificación de NIZA</h2>
                     <p>Selecciona la clasificación de producto o servicio de tu marca.</p>
                     <p> No sabes lo que es la clasificación de NIZA </p>
-                    <a href="">Averigualo Ahora</a> <br><br>
+                    <a href="">Averigua tu clasificación de NIZA aquí!</a> <br><br>
 
 
-                    <div class="form-group col-md-12 col-sm-12 col-xs-12 select_box ">
-                      <input type="hidden"  name="state" id="state"/>
-                      <a  class="dropdown-toggle select_options" data-toggle="dropdown" href="#"> <span class="change-text pull-left">Selecciona clasificación de NIZA</span> <i class="fa fa-angle-down pull-right"></i> </a>
-                      <ul class="dropdown-menu">
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                        <li><a href="#">Option three</a></li>
-                        <li><a href="#"></a></li>
-                        <li><a href="#">Option two</a></li>
-                      </ul>
-                    </div>
+                   <select name="niza" id="niza" class="form-group col-md-12 col-sm-12 col-xs-12 select_box dropdown-toggle select_options change-text pull-left">
+                    <option>Selecciona Clasificación de NIZA</option>  
+                    <option value="clase1"> Clase 1 </option>
+                    <option value="clase2"> Clase 2</option>
+                    <option value="clase3"> Clase 3</option>
+                    <option value="clase4"> Clase 4</option>
+                    <option value="clase5"> Clase 5</option>
+                    <option value="clase6"> Clase 6</option>
+                    <option value="clase7"> Clase 7</option>
+                    <option value="clase8"> Clase 8</option>
+                    <option value="clase9"> Clase 9</option>
+                    <option value="clase10"> Clase 10</option>
+                    <option value="clase11"> Clase 11</option>
+                    <option value="clase12"> Clase 12</option>
+                    <option value="clase13"> Clase 13</option>
+                    <option value="clase14"> Clase 14</option>
+                    <option value="clase15"> Clase 15</option>
+                    <option value="clase16"> Clase 16</option>
+                    <option value="clase17"> Clase 17</option>
+                    <option value="clase18"> Clase 18</option>
+                    <option value="clase19"> Clase 19</option>
+                    <option value="clase20"> Clase 20</option>
+                    <option value="clase21"> Clase 21</option>
+                    <option value="clase22"> Clase 22</option>
+                    <option value="clase23"> Clase 23</option>
+                    <option value="clase24"> Clase 24</option>
+                    <option value="clase25"> Clase 25</option>
+                    <option value="clase26"> Clase 26</option>
+                    <option value="clase27"> Clase 27</option>
+                    <option value="clase28"> Clase 28</option>
+                    <option value="clase29"> Clase 29</option>
+                    <option value="clase30"> Clase 30</option>
+                    <option value="clase31"> Clase 31</option>
+                    <option value="clase32"> Clase 32</option>
+                    <option value="clase33"> Clase 33</option>
+                    <option value="clase34"> Clase 34</option>
+                    <option value="clase35"> Clase 35</option>
+                    <option value="clase36"> Clase 36</option>
+                    <option value="clase37"> Clase 37</option>
+                    <option value="clase38"> Clase 38</option>
+                    <option value="clase39"> Clase 39</option>
+                    <option value="clase40"> Clase 40</option>
+                    <option value="clase41"> Clase 41</option>
+                    <option value="clase42"> Clase 42</option>
+                    <option value="clase43"> Clase 43</option>
+                    <option value="clase44"> Clase 44</option>
+                    <option value="clase45"> Clase 45</option>
+                    </select>
+
                     <div class="clearfix"></div>
                     <hr />
                     <!--Choose Service-->
                     <h2>Descripción de la marca</h2>
                     <p>Hasta 1,000 caracteres.</p>
                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                      <textarea class="form-control" rows="15" id="name" name="name" placeholder="Nombres" type="text"/> </textarea>
+                      <textarea class="form-control" rows="15" id="descripcionMarca" name="descripcionMarca" placeholder="Descripción de la marca" type="text"/> </textarea>
                     </div>
                     <div class="clearfix"></div>
                     <hr />
@@ -289,19 +280,12 @@
                         SSL encrypted payment.</span></p>
                     </div>
 
-                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                    </div>
+
                   </form>
+
+
                  
-                  <form name="PayBox" id="PayBox">
-  <!--Email de la cuenta XChange -->
-  <input type="hidden" name="remail" value="cchacon@pilisimas.com">
-  <!--Email del usuario que realiza el pago-->
-  <input type="hidden" name="sendmail" value="cchacon@pilisimas.com">
-  <!--Monto a pagar con formato 1.00, 10.00, 100.00-->
-  <input type="hidden" name="amount" value="199.00">
-  <button onclick="submitPayBox()" id="pay"></button>
-</form> 
+                  <div id="ButtonPaybox"></div>
 
                 </div>
               </div>
@@ -318,43 +302,36 @@
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/time3.png" alt="time3" /></div>
                 <div class="box_content">
-                  <h4>SAVES YOU TIME</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+                  <h4>AHORRA TIEMPO</h4>
+                  <p>Registra tu marca online y evita filas y procesos largos</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/Safety3.png" alt="Safety3" /></div>
                 <div class="box_content">
-                  <h4>For Your Safety</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+                  <h4>SEGURO</h4>
+                  <p>Por tu seguridad utilizamos certificados SSL y pagos encriptados.</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/best3.png" alt="best3" /></div>
                 <div class="box_content">
-                  <h4>Best-Rated Professionals</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting </p>
-                </div>
-              </div>
-              <div class="icon_box_one">
-                <div class="icons"><img src="images/booking/Equipped3.png" alt="Equipped3" /></div>
-                <div class="box_content">
-                  <h4>We Are Well Equipped</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+                  <h4>ABOGADOS ESPECIALIZADOS</h4>
+                  <p>Contamos con un equipo de abogados especializado en Propiedad Intelectual.</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/touch3.png" alt="touch3" /></div>
                 <div class="box_content">
-                  <h4>Always In Touch</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+                  <h4>SIEMPRE EN CONTACTO</h4>
+                  <p>Te mantenemos al tanto de tu proceso registral y lo realizamos por ti.</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/cash3.png" alt="cash3" /></div>
                 <div class="box_content">
-                  <h4>Cash-Free Facility</h4>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting </p>
+                  <h4>PAGA EN LINEA</h4>
+                  <p>Realiza tu pago de manera segura y completamente en línea.</p>
                 </div>
               </div>
             <div class="box_btn">
@@ -365,20 +342,20 @@
               <h1>Descripción del pago</h1>
               <ul>
                 <li><i class="fa fa-home" aria-hidden="true"></i>Registro de marca</li>
-                <li><i class="fa fa-calendar" aria-hidden="true"></i>Tasa de registro SENADI</li>
+                <li><i class="fa fa-calendar" aria-hidden="true"></i>Tasa SENADI</li>
               </ul>
               <div class="price_totle">
                 <div class="subtotal">
-                  <div class="heading text-left">SUBTOTAL</div>
-                  <div class="price text-right">$119.00</div>
+                  <div class="heading text-left">Registro e Informe de Viabilidad</div>
+                  <div class="price text-right">$209.99</div>
                 </div>
                 <div class="subtotal">
-                  <div class="heading text-left">DISCOUNT</div>
-                  <div class="price text-right">$17.85</div>
+                  <div class="heading text-left">Tasa SENADI</div>
+                  <div class="price text-right">$224.00</div>
                 </div>
                 <div class="subtotal">
-                  <div class="heading text-left">TOTAL:</div>
-                  <div class="price text-right">$101.15</div>
+                  <div class="heading text-left">TOTAL</div>
+                  <div class="price text-right">$433.99</div>
                 </div>
               </div>
             </div>
@@ -461,6 +438,80 @@
   
 </div>
 <!--/Wrapper End--> 
+
+
+<script type="text/javascript">
+  var data = {
+              
+    /* Email de la cuenta XChange o Id/Class del elemento html que posee el valor */
+
+    PayboxRemail: "cchacon@pilisimas.com",
+
+    /* Email del usuario que realiza el pago o Id/Class del elemento html que posee el valor */
+
+    PayboxSendmail: "cchacon@pilisimas.com",
+
+    /* Nombre del usuario/cuenta XChange o Id/Class del elemento html que posee el valor */
+
+    PayboxRename: "SmartUp Law",
+
+    /* Nombre del usuario que realiza el pago o Id/Class del elemento html que posee el valor */
+
+    PayboxSendname: "Usuario SmartUp",
+
+    /* Ejemplo: 100.00, 10.00, 1.00 o Id/Class del elemento html que posee el valor */
+
+    PayboxAmount: "433.99",
+
+    /* Descripcion del pago o Id/Class del elemento html que posee el valor */
+
+    PayboxDescription: "Pago por registro de marca", 
+
+    /* Tipo de Ejecución
+      * Production: true (Modo Producción, Se procesarán cobros y se cargarán al sistema, afectará a la tdc)
+      * Production: false (Modo Prueba, se realizaran cobros de prueba y no se guardará ni afectará al sistema)
+    */
+
+    PayboxProduction: false,
+
+    /* Lenguaje del Paybox
+      * Español: es | (string) (Paybox en español)
+      * Ingles: us | (string) (Paybox en Ingles)
+    */
+
+    PayboxLanguage: "es",
+
+    /* Valores HTML que son requeridos por la web que implementa el botón de pago.
+      * Se permiten utilizar los identificadores de # y . que describen los Id y Class de los Elementos HTML
+      * Array de identificadores de elementos HTML | Ejemplo: PayboxRequired: ["#nombre", "#correo", "#monto"]
+    */
+
+    PayboxRequired: [
+
+    ]
+  };
+
+    var onAuthorize = function(response) {
+    // La variable response posee un Objeto con la respuesta de xchange.
+
+    if (response.status == 'succeeded') {
+      console.log("Exito");
+      document.getElementById("myForm").submit();
+        // Si el pago fue exitoso se ejecutará el código contenido en este if.
+
+        /* Referencia a la vista donde se aplicará el authorize "parent.document" */
+
+        /* Ejemplo */
+        /* Insertar un el status de la transacción al final del body */
+        /* jQuery(parent.document).find("body").append(response.status); */ 
+    } else {
+      console.log(response);
+      console.log("Mierda");
+        // Si hubo un problema con el pago se ejecutará este código.
+    }
+  };
+
+</script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
