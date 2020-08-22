@@ -30,22 +30,10 @@ $tel = $_POST['tel'];
 $tel = "Not set";
 }
 
-if (isset($_POST['direccion'])) {
-$direccion = $_POST['direccion'];
+if (isset($_POST['carillas'])) {
+$carillas = $_POST['carillas'];
 } else {
-$direccion = "Not set";
-}
-
-if (isset($_POST['niza'])) {
-$niza = $_POST['niza'];
-} else {
-$niza = "Not set";
-}
-
-if (isset($_POST['descripcionMarca'])) {
-$descripcionMarca = $_POST['descripcionMarca'];
-} else {
-$descripcionMarca = "Not set";
+$carillas = "Not set";
 }
 
 if (isset($_POST['monto'])) {
@@ -56,25 +44,19 @@ $monto = "0.00";
 
 
 //Get the uploaded file information
-$name_of_uploaded_file1 = basename($_FILES['cedulaORuc']['name']);
-$name_of_uploaded_file2 = basename($_FILES['Nombramiento']['name']);
-$name_of_uploaded_file3 = basename($_FILES['logoArchivo']['name']);
+$name_of_uploaded_file1 = basename($_FILES['contratoPDF']['name']);
 
 //get the file extension of the file
 $type_of_uploaded_file1 = substr($name_of_uploaded_file1, strrpos($name_of_uploaded_file1, '.') + 1);
-$type_of_uploaded_file2 = substr($name_of_uploaded_file2, strrpos($name_of_uploaded_file2, '.') + 1);
-$type_of_uploaded_file3 = substr($name_of_uploaded_file3, strrpos($name_of_uploaded_file3, '.') + 1);
 
-$size_of_uploaded_file1 = $_FILES["cedulaORuc"]["size"]/1024;//size in KBs
-$size_of_uploaded_file2 = $_FILES["Nombramiento"]["size"]/1024;//size in KBs
-$size_of_uploaded_file3 = $_FILES["logoArchivo"]["size"]/1024;//size in KBs
+$size_of_uploaded_file1 = $_FILES["contratoPDF"]["size"]/1024;//size in KBs
 
 //Settings
 $max_allowed_file_size = 4086; // size in KB
 $allowed_extensions = array("jpg", "jpeg", "gif", "png", "pdf");
 
 //Validations
-if($size_of_uploaded_file1 > $max_allowed_file_size || $size_of_uploaded_file2 > $max_allowed_file_size || $size_of_uploaded_file3 > $max_allowed_file_size)
+if($size_of_uploaded_file1 > $max_allowed_file_size)
 {
   $errors .= "\n El tamaño de los archivos debe ser menor a ".$max_allowed_file_size;
   printf($errors);
@@ -82,26 +64,16 @@ if($size_of_uploaded_file1 > $max_allowed_file_size || $size_of_uploaded_file2 >
 
 //------ Validate the file extension -----
 $allowed_ext1 = false;
-$allowed_ext2 = false;
-$allowed_ext3 = false;
+
 for($i=0; $i<sizeof($allowed_extensions); $i++)
 {
   if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file1) == 0)
   {
     $allowed_ext1 = true;
   }
-  if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file2) == 0)
-  {
-    $allowed_ext2 = true;
-  }
-  if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file2) == 0)
-  {
-    $allowed_ext3 = true;
-  }
-
 }
 
-if(!$allowed_ext1 || !$allowed_ext2 || !$allowed_ext3)
+if(!$allowed_ext1)
 {
   $errors .= "\n La extensión de uno de tus archivos no es correcta, regresa a la pagina anterior y revisa. ".
   " Las siguientes extensiones son soportadas: ".implode(',',$allowed_extensions);
@@ -109,38 +81,16 @@ if(!$allowed_ext1 || !$allowed_ext2 || !$allowed_ext3)
   exit();
 }
 
-$upload_folder = "./uploads/";
+$upload_folder = "./uploads/revision";
 //copy the temp. uploaded file to uploads folder
 $path_of_uploaded_file1 = $upload_folder . $name_of_uploaded_file1;
-$path_of_uploaded_file2 = $upload_folder . $name_of_uploaded_file2;
-$path_of_uploaded_file3 = $upload_folder . $name_of_uploaded_file3;
-$tmp_path1 = $_FILES["cedulaORuc"]["tmp_name"];
-$tmp_path2 = $_FILES["Nombramiento"]["tmp_name"];
-$tmp_path3 = $_FILES["logoArchivo"]["tmp_name"];
+$tmp_path1 = $_FILES["contratoPDF"]["tmp_name"];
 
 if(is_uploaded_file($tmp_path1))
 {
   if(!copy($tmp_path1,$path_of_uploaded_file1))
   {
-    $errors .= '\n Error descargando la cedula o RUC';
-    printf($errors);
-  }
-}
-
-if(is_uploaded_file($tmp_path2))
-{
-  if(!copy($tmp_path2,$path_of_uploaded_file2))
-  {
-    $errors .= '\n Error descargando la nombramiento';
-    printf($errors);
-  }
-}
-
-if(is_uploaded_file($tmp_path3))
-{
-  if(!copy($tmp_path3,$path_of_uploaded_file3))
-  {
-    $errors .= '\n Error descargando el logo';
+    $errors .= '\n Error descargando el contrato';
     printf($errors);
   }
 }
@@ -281,7 +231,6 @@ $html = '<head>
 <b>Nombre Completo: </b>'.$nombres.' '.$apellidos.' <br>
 <b>Email: </b>'.$email.' <br>
 <b>Numero de telefono: </b>'.$tel.' <br>
-<b<Dirección: </b>'.$direccion.'
 
 </td>
 </tr>
@@ -289,39 +238,6 @@ $html = '<head>
 </td>
 </tr>
 <tr>
-
-
-<table align="center" cellpadding="0" cellspacing="0" class="page-center" style="text-align: left; padding-bottom: 72px; width: 100%; padding-left: 103px; padding-right: 103px">
-<tbody><tr>
-<td colspan="2">
-<table cellpadding="0" cellspacing="0" style="width: 100%">
-<tbody><tr>
-<td style="padding-top: 24px; -ms-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; color: #000000; font-family: \'Postmates Std\', \'Helvetica\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif; font-size: 18px; font-smoothing: always; font-style: normal; font-weight: 400; letter-spacing: -0.48px; line-height: 32px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; width: 100%;">
-<span style="font-weight: 600"></span> Clasificación de NIZA <br>
-NIZA: '.$niza.' <br>
-</td>
-</tr>
-</tbody></table>
-</td>
-</tr>
-<tr>
-
-
-<table align="center" cellpadding="0" cellspacing="0" class="page-center" style="text-align: left; padding-bottom: 72px; width: 100%; padding-left: 103px; padding-right: 103px">
-<tbody><tr>
-<td colspan="2">
-<table cellpadding="0" cellspacing="0" style="width: 100%">
-<tbody><tr>
-<td style="padding-top: 24px; -ms-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; color: #000000; font-family: \'Postmates Std\', \'Helvetica\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif; font-size: 18px; font-smoothing: always; font-style: normal; font-weight: 400; letter-spacing: -0.48px; line-height: 32px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; width: 100%;">
-<span style="font-weight: 600"></span> Descripción de la Marca <br>
-'.$descripcionMarca.' <br>
-</td>
-</tr>
-</tbody></table>
-</td>
-</tr>
-<tr>
-<hr>
 
 
 
@@ -417,9 +333,7 @@ $mg->messages()->send('mailing.pilisimas.com', [
   'subject' => 'Consumo en SmartUp Law - NO RESPONDER A ESTE CORREO ',
   'html'    => $html,
   'attachment' => [
-    ['filePath'=>$path_of_uploaded_file1],
-    ['filePath'=>$path_of_uploaded_file2],
-    ['filePath'=>$path_of_uploaded_file3]
+    ['filePath'=>$path_of_uploaded_file1]
   ]
 ]);
 echo '<script type="text/javascript"> alert("Inscripción enviada con exito"); </script>';
