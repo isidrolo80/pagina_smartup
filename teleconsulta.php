@@ -6,16 +6,16 @@ use Mailgun\Mailgun;
 # First, instantiate the SDK with your API credentials
 $mg = Mailgun::create('key-366931960e3cac99f30d6185f4e4e9c5');
 
-if (isset($_POST['nombres'])) {
-$nombres = $_POST['nombres'];
+if (isset($_POST['name'])) {
+$name = $_POST['name'];
 } else {
-$nombres = "Not set";
+$name = "Not set";
 }
 
-if (isset($_POST['apellidos'])) {
-$apellidos = $_POST['apellidos'];
+if (isset($_POST['name1'])) {
+$name1 = $_POST['name1'];
 } else {
-$apellidos = "Not set";
+$name1 = "Not set";
 } 
 
 if (isset($_POST['email'])) {
@@ -30,10 +30,22 @@ $tel = $_POST['tel'];
 $tel = "Not set";
 }
 
-if (isset($_POST['carillas'])) {
-$carillas = $_POST['carillas'];
+if (isset($_POST['datetimepicker1'])) {
+$fecha = $_POST['datetimepicker1'];
 } else {
-$carillas = "Not set";
+$fecha = "Not set";
+}
+
+if (isset($_POST['datetimepicker3'])) {
+$hora = $_POST['datetimepicker3'];
+} else {
+$hora = "Not set";
+}
+
+if (isset($_POST['descripcion'])) {
+$descripcion = $_POST['descripcion'];
+} else {
+$descripcion = "Not set";
 }
 
 if (isset($_POST['monto'])) {
@@ -42,58 +54,6 @@ $monto = $_POST['monto'];
 $monto = "0.00";
 }
 
-
-//Get the uploaded file information
-$name_of_uploaded_file1 = basename($_FILES['contratoPDF']['name']);
-
-//get the file extension of the file
-$type_of_uploaded_file1 = substr($name_of_uploaded_file1, strrpos($name_of_uploaded_file1, '.') + 1);
-
-$size_of_uploaded_file1 = $_FILES["contratoPDF"]["size"]/1024;//size in KBs
-
-//Settings
-$max_allowed_file_size = 4086; // size in KB
-$allowed_extensions = array("jpg", "jpeg", "gif", "png", "pdf");
-
-//Validations
-if($size_of_uploaded_file1 > $max_allowed_file_size)
-{
-  $errors .= "\n El tamaño de los archivos debe ser menor a ".$max_allowed_file_size;
-  printf($errors);
-}
-
-//------ Validate the file extension -----
-$allowed_ext1 = false;
-
-for($i=0; $i<sizeof($allowed_extensions); $i++)
-{
-  if(strcasecmp($allowed_extensions[$i],$type_of_uploaded_file1) == 0)
-  {
-    $allowed_ext1 = true;
-  }
-}
-
-if(!$allowed_ext1)
-{
-  $errors .= "\n La extensión de uno de tus archivos no es correcta, regresa a la pagina anterior y revisa. ".
-  " Las siguientes extensiones son soportadas: ".implode(',',$allowed_extensions);
-  printf($errors);
-  exit();
-}
-
-$upload_folder = "./uploads/revision";
-//copy the temp. uploaded file to uploads folder
-$path_of_uploaded_file1 = $upload_folder . $name_of_uploaded_file1;
-$tmp_path1 = $_FILES["contratoPDF"]["tmp_name"];
-
-if(is_uploaded_file($tmp_path1))
-{
-  if(!copy($tmp_path1,$path_of_uploaded_file1))
-  {
-    $errors .= '\n Error descargando el contrato';
-    printf($errors);
-  }
-}
 
 # Now, compose and send your message.
 # $mg->messages()->send($domain, $params);
@@ -172,7 +132,7 @@ $html = '<head>
 <img src="https://pilisimas.com/recursos_smartup/logo_smartup.png" style="max-width: 88px; border-radius: 44px;">
 </td>
 <td style="padding-top: 24px; -ms-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; color: #000000; font-family: \'Postmates Std\', \'Helvetica\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif; font-size: 18px; font-smoothing: always; font-style: normal; font-weight: 400; letter-spacing: -0.48px; line-height: 32px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; width: 100%;">
-<span style="font-weight: 600">'.$nombres.' '.$apellidos.'</span> se realizó un cobro en su tarjeta
+<span style="font-weight: 600">'.$name.' '.$name1.'</span> se realizó un cobro en su tarjeta
                                           </td>
 </tr>
 </tbody></table>
@@ -228,9 +188,12 @@ $html = '<head>
 <tbody><tr>
 <td style="padding-top: 24px; -ms-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; color: #000000; font-family: \'Postmates Std\', \'Helvetica\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif; font-size: 18px; font-smoothing: always; font-style: normal; font-weight: 400; letter-spacing: -0.48px; line-height: 32px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; width: 100%;">
 <span style="font-weight: 600"></span> Información de Contacto <br>
-<b>Nombre Completo: </b>'.$nombres.' '.$apellidos.' <br>
+<b>Nombre Completo: </b>'.$name.' '.$name1.' <br>
 <b>Email: </b>'.$email.' <br>
 <b>Numero de telefono: </b>'.$tel.' <br>
+<b>Fecha de la cita: </b>'.$fecha.' <br>
+<b>Hora de la cita: </b>'.$hora.' <br>
+<b>Descripción para acesor: </b>'.$descripcion.' <br>
 
 </td>
 </tr>
@@ -331,10 +294,7 @@ $mg->messages()->send('mailing.pilisimas.com', [
   'to'      => $email,
   'bcc'     => 'cchacon@pilisimas.com',
   'subject' => 'Consumo en SmartUp Law - NO RESPONDER A ESTE CORREO ',
-  'html'    => $html,
-  'attachment' => [
-    ['filePath'=>$path_of_uploaded_file1]
-  ]
+  'html'    => $html
 ]);
 echo '<script type="text/javascript"> alert("Inscripción enviada con exito"); </script>';
 

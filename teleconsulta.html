@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SmartUp - Revisión Contractual</title>
+<title>SmartUp - Teleconsulta</title>
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet" />
 <link href="css/style.css" rel="stylesheet" />
-<link rel="stylesheet" href="./css/font-awesome.min.css" />
-<link rel="stylesheet" href="./css/owlcarousel/owl.carousel.min.css" />
-<link rel="stylesheet" href="./css/owlcarousel/owl.theme.default.min.css" />
-<link  href="./css/datetime/bootstrap-datetimepicker.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css" />
+<link rel="stylesheet" href="css/owlcarousel/owl.theme.default.min.css" />
+<link  href="css/datetime/bootstrap-datetimepicker.css" rel="stylesheet" />
 <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/13294dd44e38120e3847d8314/36baed87eda5777350723cac1.js");</script>
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,18 +27,11 @@
               
 
 
-
 </head>
-
- 
-
-
-
-
 
 <body>
 <div id="wrapper" class="inner_page booking_page"><!--Wrapper Start--> 
-  <!--Header Section Start-->
+ <!--Header Section Start-->
   <header id= "header" data-spy="affix" data-offset-top="60" data-offset-bottom="60" style="background-color: #141e46; ">
     <div class="container">
       <div class="row">
@@ -110,24 +103,15 @@
   <!--Page Title Section Satrt-->
   <div id="page_title">
     <div class="container text-center">
-      <div class="panel-heading">Revisión Contractual</div>
+      <div class="panel-heading">Teleconsulta</div>
       <ol class="breadcrumb">
         <li><a href="index.html">Inicio</a></li>
-        <li class="active">Revisión Contractual</li>
+        <li class="active">Teleconsulta</li>
       </ol>
     </div>
   </div>
   <!--Page Title Section End--> 
   
-
-
-
-
-
-
-
-
-
   <!--Contact Information Start-->
   <section id="contact_information">
     <div class="container">
@@ -142,81 +126,68 @@
             <div class="booking_form">
               <div class="container-fluid">
                 <div class="row">
-                  <form enctype="multipart/form-data" name="myForm" id="myForm" action="revision_contractual.php" method="POST">
+                  <form name="myForm" id="myForm" action="teleconsulta.php" method="POST">
                     <h2>Información de Contacto</h2>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                      <input class="form-control" onchange="changeSendName()" id="nombres" name="nombres" placeholder="Nombres" type="text"/>
+                      <input class="form-control" onchange="changeSendName()" id="name" name="name" placeholder="First Name" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12 padding-r">
-                      <input class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" type="text"/>
+                      <input class="form-control" id="name1" name="name1" placeholder="Last Name" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                      <input onchange="changeEmail()" class="form-control" id="email" name="email" placeholder="Email*" type="text"/>
+                      <input class="form-control" onchange="changeEmail()" id="email" name="email" placeholder="Email*" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12 padding-r">
-                      <input class="form-control" id="tel" name="tel" placeholder="Número Telefono*" type="text"/>
+                      <input class="form-control" id="tel" name="tel" placeholder="Phone Number*" type="text"/>
                     </div>
-                    <input type="hidden" id="monto" name="monto" />
+                    <input type="hidden" id="monto" name="monto" value="29.99" />
                     <div class="clearfix"></div>
                     <hr />
-                    <!--Service Address-->
-                    <h2>Tamaño del Contrato</h2>
-                    <p>Selecciona el tamaño del contrato</p>
-
-                   <select name="carillas" id="carillas" onchange="changePrice()" class="form-group col-md-12 col-sm-12 col-xs-12 select_box dropdown-toggle select_options change-text pull-left">
-                    <option>Selecciona el numero de carillas</option>  
-                    <option value="opcion1"> 1 - 10 carillas </option>
-                    <option value="opcion2"> 11 - 20 carillas </option>
-                    <option value="opcion3"> 21+ carillas</option>
-                    </select>
-
-                    <div class="clearfix"></div>
-                    <hr />
-                    <!--Choose Service-->
-
-                    <!--Select Extras Services-->
-                    <h2>Contrato en PDF</h2>
-                    <input type="file" name="contratoPDF" id="contratoPDF">
-                    <div class="clearfix"></div>
                    
-                    
-
-<!--
-                    <div class="form-group col-md-8 col-sm-8 col-xs-12">
-                      <input class="form-control" id="Promo_code" name="Promo_code" placeholder="Promo code (optional)" type="text" />
+                    <!--Select Date Time-->
+                    <h2>Para cuando deseas agendar tu teleconsulta?</h2>
+                    <p></p>
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                      <div class='input-group date' id='datetimepicker1' name='datetimepicker1'>
+                        <input type='text' class="form-control" id='datetimepicker1' name='datetimepicker1' />
+                        <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span> </div>
                     </div>
-
-                    <div class="form-group col-md-4 col-sm-4 col-xs-12 padding-r">
-                      <button class="btn btn-primary promo_apply" name="Apply"  type="submit"> Apply </button>
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12 padding-r">
+                      <div class='input-group date' id='datetimepicker3' name='datetimepicker3'>
+                        <input type='text' class="form-control" id='datetimepicker3' name='datetimepicker3' />
+                        <span class="input-group-addon"> <span class="glyphicon glyphicon-time"></span> </span> </div>
                     </div>
---> 
                     <div class="clearfix"></div>
                     <hr />
                     
+                    <!--Promo Code-->
+                    <h2>En que te podemos ayudar?</h2>
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                      <input class="form-control" id="descripcion" name="descripcion" placeholder="Descripción corta" type="textfield" />
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr />
                     
                     <div class="booking_summary hidden-lg  hidden-md hidden-sm">
-                      <h1>Descripción del pago</h1>
+                      <h1>Detalle de tu compra</h1>
                       <div class="price_totle">
                         <div class="subtotal">
+                          <div class="heading text-left">SUBTOTAL</div>
+                          <div class="price text-right">$26.4</div>
+                        </div>
+                        <div class="subtotal">
+                          <div class="heading text-left">IVA</div>
+                          <div class="price text-right">$3.59</div>
+                        </div>
+                        <div class="subtotal">
                           <div class="heading text-left">TOTAL:</div>
-                          <div id="valortotal" name="valortotal" class="price text-right"></div>
+                          <div class="price text-right">$29.99</div>
                         </div>
                       </div>
                     </div>
-                    <p>By clicking the Book Now button you are agreeing to our Terms of Service and Privacy Policy.</p>
-<hr>
-<div class="col-md-6 col-sm-6 col-xs-12" >
-                      <p class="help-block"><i class="fa fa-lock" aria-hidden="true"></i> <span>Safe and secure 256-BIT<br />
-                        SSL encrypted payment.</span></p>
-                    </div>
-
-
+                    <p>Al dar click en Reservar estas aceptando nuestros terminos de servicio y política de privacidad.</p>
+                   <div id="ButtonPaybox"></div>
                   </form>
-
-
-                 
-                  <div id="ButtonPaybox"></div>
-
                 </div>
               </div>
             </div>
@@ -232,46 +203,47 @@
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/time3.png" alt="time3" /></div>
                 <div class="box_content">
-                  <h4>AHORRA TIEMPO</h4>
-                  <p>Una vez enviado el formulario, tu revisión estará lista en 12 horas</p>
+                  <h4>AHORRA TIEMPO!</h4>
+                  <p>Con tu teleconsulta puedes saber por donde empezar en tu proceso legal</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/Safety3.png" alt="Safety3" /></div>
                 <div class="box_content">
                   <h4>SEGURO</h4>
-                  <p>Por tu seguridad utilizamos certificados SSL y pagos encriptados.</p>
-                </div>
-              </div>
-              <div class="icon_box_one">
-                <div class="icons"><img src="images/booking/best3.png" alt="best3" /></div>
-                <div class="box_content">
-                  <h4>ABOGADOS ESPECIALIZADOS</h4>
-                  <p>Contamos con un equipo de abogados especializados en materia contractual.</p>
+                  <p>Ofrecemos una política de devolución del 100% si tu acesor no te contacta a tiempo</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/touch3.png" alt="touch3" /></div>
                 <div class="box_content">
-                  <h4>SIEMPRE EN CONTACTO</h4>
-                  <p>Recibe un informe detallado del contrato y si tienes más preguntas sobre el contrato, las respondemos sin ningun valor adicional.</p>
+                  <h4>SEGUIMIENTO</h4>
+                  <p>Queremos que te vaya bien! Estaremos pendientes e informandote todo el tiempo sobre tu proceso</p>
                 </div>
               </div>
               <div class="icon_box_one">
                 <div class="icons"><img src="images/booking/cash3.png" alt="cash3" /></div>
                 <div class="box_content">
-                  <h4>PAGA EN LINEA</h4>
-                  <p>Realiza tu pago de manera segura y completamente en línea.</p>
+                  <h4>Pago en línea.</h4>
+                  <p>Ofrecemos pagos seguros en línea, su factura electrónica será emitida en línea tambien.</p>
                 </div>
               </div>
+              
             </div>
             <div class="booking_summary hidden-xs">
-              <h1>Descripción del pago</h1>
-              
+              <h1>Detalle de tu compra</h1>
               <div class="price_totle">
                 <div class="subtotal">
-                  <div class="heading text-left"><b>TOTAL</b></div>
-                  <div id="valortotal1" name="valortotal1" class="price text-right"></div>
+                  <div class="heading text-left">SUBTOTAL</div>
+                  <div class="price text-right">$26.4</div>
+                </div>
+                <div class="subtotal">
+                  <div class="heading text-left">IVA</div>
+                  <div class="price text-right">$3.59</div>
+                </div>
+                <div class="subtotal">
+                  <div class="heading text-left">TOTAL:</div>
+                  <div class="price text-right">$29.99</div>
                 </div>
               </div>
             </div>
@@ -282,13 +254,6 @@
   </section>
   <!--Contact Information End--> 
   
-
-
-
-
-
-
-
 <!--Footer-->
   <footer>
     <div class="container-fluid footerbg">
@@ -384,11 +349,11 @@
 
     /* Ejemplo: 100.00, 10.00, 1.00 o Id/Class del elemento html que posee el valor */
 
-    PayboxAmount: "14.99",
+    PayboxAmount: "29.99",
 
     /* Descripcion del pago o Id/Class del elemento html que posee el valor */
 
-    PayboxDescription: "Pago por registro de marca", 
+    PayboxDescription: "Pago por teleconsulta", 
 
     /* Tipo de Ejecución
       * Production: true (Modo Producción, Se procesarán cobros y se cargarán al sistema, afectará a la tdc)
@@ -434,30 +399,6 @@
     }
   };
 
-  function changePrice() {
-    var opcion = document.getElementById("carillas");
-    var email = document.getElementById("email");
-    var valorTotal = document.getElementById("valortotal");
-
-    if (opcion.value == 'opcion1') {
-      data.PayboxAmount = "14.99";
-      document.getElementById("monto").value = "14.99";
-      document.getElementById("valortotal").innerHTML = "$14.99";
-      document.getElementById("valortotal1").innerHTML = "$14.99";
-    }
-    if (opcion.value == 'opcion2') {
-      data.PayboxAmount = "24.99";
-      document.getElementById("monto").value = "24.99";
-      document.getElementById("valortotal").innerHTML = "$24.99";
-      document.getElementById("valortotal1").innerHTML = "$24.99";
-    }
-    if (opcion.value == 'opcion3') {
-      data.PayboxAmount = "34.99";
-      document.getElementById("monto").value = "34.99";
-      document.getElementById("valortotal").innerHTML = "$34.99";
-      document.getElementById("valortotal1").innerHTML = "$34.99";
-    }
-  }
   function changeEmail() {
     data.PayboxSendmail = email.value;
   }
@@ -471,12 +412,26 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
 
-<script src="./js/bootstrap.min.js"></script> 
-<script  src="./js/datetime/moment.js"></script> 
-<script  src="./js/datetime/bootstrap-datetimepicker.min.js"></script> 
-<script src="./js/owlcarousel/owl.carousel.min.js"></script> 
-<script src="./js/custom.js"></script>
-
+<script src="js/bootstrap.min.js"></script> 
+<script  src="js/datetime/moment.js"></script> 
+<script  src="js/datetime/bootstrap-datetimepicker.min.js"></script> 
+<script src="js/owlcarousel/owl.carousel.min.js"></script> 
+<script src="js/custom.js"></script> 
+<script type="application/javascript">
+$(document).ready(function(){
+    
+	$(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+       
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
+                });
+            });	
+		
+});
+</script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -490,6 +445,5 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-
 </body>
 </html>

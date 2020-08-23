@@ -149,7 +149,7 @@ if(is_uploaded_file($tmp_path3))
 # $mg->messages()->send($domain, $params);
 
 $html = '<head>
-<title>Notificacion de consumo en Caferucita</title>
+<title>Notificacion de consumo en SmartUp Law</title>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 <meta content="width=device-width" name="viewport">
 <style type="text/css">
