@@ -422,7 +422,8 @@ $mg->messages()->send('mailing.pilisimas.com', [
     ['filePath'=>$path_of_uploaded_file3]
   ]
 ]);
-echo '<script type="text/javascript"> alert("Inscripción enviada con exito"); </script>';
+echo '<script type="text/javascript"> alert("Inscripción enviada con exito, el email de confirmación llegará en unos minutos"); </script>';
+//header('Location: http://smartup.com.ec');
 
 ?>
 

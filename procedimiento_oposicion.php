@@ -134,7 +134,7 @@ $html = '<head>
 <img src="https://pilisimas.com/recursos_smartup/logo_smartup.png" style="max-width: 88px; border-radius: 44px;">
 </td>
 <td style="padding-top: 24px; -ms-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; color: #000000; font-family: \'Postmates Std\', \'Helvetica\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif; font-size: 18px; font-smoothing: always; font-style: normal; font-weight: 400; letter-spacing: -0.48px; line-height: 32px; mso-line-height-rule: exactly; text-decoration: none; vertical-align: middle; width: 100%;">
-<span style="font-weight: 600">'.$nombres.'</span> se realizó un cobro en su tarjeta
+<span style="font-weight: 600">'.$nombres.'</span> se registró tu solicitud de oposición 
                                           </td>
 </tr>
 </tbody></table>
@@ -299,7 +299,7 @@ $mg->messages()->send('mailing.pilisimas.com', [
   'subject' => 'Consumo en SmartUp Law - NO RESPONDER A ESTE CORREO ',
   'html'    => $html
 ]);
-echo '<script type="text/javascript"> alert("Inscripción enviada con exito"); </script>';
+echo '<script type="text/javascript"> alert("Inscripción enviada con exito, el email de confirmación llegará en unos minutos"); </script>';
 
 ?>
 

@@ -285,7 +285,7 @@ $mg->messages()->send('mailing.pilisimas.com', [
   'subject' => 'Consumo en SmartUp Law - NO RESPONDER A ESTE CORREO ',
   'html'    => $html
 ]);
-echo '<script type="text/javascript"> alert("Inscripción enviada con exito"); </script>';
+echo '<script type="text/javascript"> alert("Inscripción enviada con exito, el email de confirmación llegará en unos minutos"); </script>';
 
 ?>
 

@@ -133,12 +133,11 @@
                 <div class="row">
                   <form enctype="multipart/form-data" name="myForm" id="myForm" action="registro_marca.php" method="POST">
                     <h2>Información de Contacto</h2>
-                    <p>Por hacer</p>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                      <input class="form-control" id="Nombre" name="Nombre" placeholder="Nombres" type="text"/>
+                      <input class="form-control" id="nombres" name="nombres" placeholder="Nombres" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12 padding-r">
-                      <input class="form-control" id="Apellidos" name="Apellidos" placeholder="Apellidos" type="text"/>
+                      <input class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" type="text"/>
                     </div>
                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                       <input class="form-control" id="email" name="email" placeholder="Email" type="text"/>
@@ -155,7 +154,7 @@
                     <!--Service Address-->
                     <h2>Clasificación de NIZA</h2>
                     <p>Selecciona la clasificación de producto o servicio de tu marca.</p>
-                    <p> ¿No sabes lo que es la clasificación de NIZA? <a href="">Conoce más aquí.</a> </p>
+                    <p> ¿No sabes lo que es la clasificación de NIZA? <a href="./recursos/clasificacion_niza.pdf" target="_blank">Conoce más aquí.</a> </p>
                      <br>
 
 
@@ -470,7 +469,7 @@
       * Production: false (Modo Prueba, se realizaran cobros de prueba y no se guardará ni afectará al sistema)
     */
 
-    PayboxProduction: false,
+    PayboxProduction: true,
 
     /* Lenguaje del Paybox
       * Español: es | (string) (Paybox en español)
